@@ -39,7 +39,7 @@ class ChatRoom extends Component {
   }
 
   isimageMessage(message) {
-    if (message.text.slice(0, 19) === 'https://test-uphere') {
+    if (message.text.indexOf('https://s3.ap-northeast-2.amazonaws.com/uphere.uploads/') === 0) {
       return ( <div className={`${s.chatlog_message}`}><img src={`${message.text}`} className={`${s.img_message}`} /></div> )
     } return ( <p className={`${s.chatlog_message}`}>{`${message.text}`}</p> )
   }
