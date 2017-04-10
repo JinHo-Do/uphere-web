@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChatInput from '../ChatInput/ChatInput';
 import s from './ChatRoom.css';
 import Img from './uphere1.png';
+import { IMG_SERVER } from '../../config.js';
 
 class ChatRoom extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class ChatRoom extends Component {
   }
 
   isimageMessage(message) {
-    if (message.text.indexOf('https://s3.ap-northeast-2.amazonaws.com/uphere.uploads/') > -1) {
+    if (message.text.indexOf(IMG_SERVER) > -1) {
       return ( <div className={`${s.chatlog_message}`}><img src={message.text} className={`${s.img_message}`} /></div> )
     } return ( <p className={`${s.chatlog_message}`}>{message.text}</p> )
   }

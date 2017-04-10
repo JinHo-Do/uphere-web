@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './ChatList.css';
+import { IMG_SERVER } from '../../config.js';
 
 class ChatList extends React.Component {
   constructor(props) {
@@ -189,7 +190,9 @@ class ChatList extends React.Component {
                         this._isYourMessage(chat.messages[chat.messages.length - 1]) ?
                           'You: ' : null
                       }
-                      <span>{ chat.messages[chat.messages.length - 1].text }</span>
+                      <span>{ chat.messages[chat.messages.length - 1].text.indexOf(IMG_SERVER) > -1 ?
+                        '이미지 파일' : chat.messages[chat.messages.length - 1].text
+                      }</span>
                     </span>
                 }
               </div>
